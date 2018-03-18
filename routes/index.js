@@ -60,8 +60,14 @@ module.exports = function (passport) {
   }
 
   router.get('/logout', function (req,res) {
-    req.logout()
-    res.redirect('/')
+    req.logout();
+    req.session.destroy((err)=>{
+      if(err) console.log(err)
+      else{
+        res.clearCookie('connect.sid');
+        res.redirect('/');
+      }
+    });
   })
 
   return router;
