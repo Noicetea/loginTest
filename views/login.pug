@@ -1,0 +1,19 @@
+doctype html
+html
+  head
+    meta(charset='UTF-8')
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    script(src='lib/jade.min.js')
+    //- script(src='lib/jquery.min.js')
+    script(src='lib/jquery-3.3.1.min.js')
+    script(src='/javascripts/login.js')
+  body
+      h1= title
+      p Welcome to #{title}
+      form#myfn(action="/login", method="POST")
+        .fn
+          .build-form
+            input#username(name="username" type='text' placeholder='username')
+            input#password(name="password" type='password' placeholder='password')
+      button#login Login
